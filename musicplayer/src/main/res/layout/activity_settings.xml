@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <RadioGroup
+        android:id="@+id/rb_mode"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <RadioButton
+            android:id="@+id/rb_single_cycle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="单曲循环" />
+
+        <RadioButton
+            android:id="@+id/rb_next_song"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="下一曲" />
+
+        <RadioButton
+            android:id="@+id/rb_play_and_stop"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="播放后暂停" />
+    </RadioGroup>
+
+    <SeekBar
+        android:id="@+id/seekBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+</LinearLayout>
