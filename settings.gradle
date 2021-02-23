@@ -1,3 +1,8 @@
+include ':girl'
+include ':testimage'
+include ':sensor'
+include ':fish'
+include ':alipay'
 include ':musicplayer'
 include ':ipcall'
 include ':rpcalc'

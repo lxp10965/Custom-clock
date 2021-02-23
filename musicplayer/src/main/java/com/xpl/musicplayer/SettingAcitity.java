@@ -21,7 +21,7 @@ public class SettingAcitity extends Activity {
      */
     private SharedPreferences sp;
     private SeekBar seekBar;
-    private MusicPlayerService musicPlayerService;
+    private MyMusicPlayerService musicPlayerService;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -92,21 +92,36 @@ public class SettingAcitity extends Activity {
             }
         });
 
-        musicPlayerService= new MusicPlayerService();
-        musicPlayerService.setOnMusicLengthListener(new MusicPlayerService.OnMusicLengthListener() {
-            @Override
-            public void getMaxMusicLength(long length) {
-                Log.d("TAG", "getMaxMusicLength: ");
-                seekBar.setMax((int) length);
-            }
+//        musicPlayerService= new MusicPlayerService();
+//        musicPlayerService.setOnMusicLengthListener(new MusicPlayerService.OnMusicLengthListener() {
+//            @Override
+//            public void getMaxMusicLength(long length) {
+//                Log.d("TAG", "getMaxMusicLength: ");
+//                seekBar.setMax((int) length);
+//            }
+//
+//            @Override
+//            public void getMusicCurr(long curr) {
+//                Log.d(TAG, "getMusicCurr: ");
+//                seekBar.setProgress((int) curr);
+//            }
+//        });
 
-            @Override
-            public void getMusicCurr(long curr) {
-                Log.d(TAG, "getMusicCurr: ");
-                seekBar.setProgress((int) curr);
-            }
-        });
+        musicPlayerService=new MyMusicPlayerService();
 
     }
 
+    private class MyMusicPlayerService implements MusicPlayerService.OnMusicLengthListener {
+        @Override
+        public void getMaxMusicLength(long length) {
+            Log.d("TAG", "getMaxMusicLength: ");
+                seekBar.setMax((int) length);
+        }
+
+        @Override
+        public void getMusicCurr(long curr) {
+            Log.d(TAG, "getMusicCurr: ");
+                seekBar.setProgress((int) curr);
+        }
+    }
 }
